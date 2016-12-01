@@ -15,9 +15,19 @@ export class choice_destin{
     console.log('UserId', params.get('userId'));
     this.map = new BMap.Map();
   }
-  dismiss( e:any ) {
-    let data = { 'data': e };
-    this.viewCtrl.dismiss(data);
+  dismiss( e:string ) {
+    let myGeo = new BMap.Geocoder();
+    // 将地址解析结果显示在地图上,并调整地图视野
+    myGeo.getPoint(e, (point)=>{
+      if (point) {
+        console.log(point);
+        let lng = point.lng;
+        let lat = point.lat;
+        this.viewCtrl.dismiss({lng,lat,e});
+      }else{
+        alert("您选择地址没有解析到结果!");
+      }
+    }, sessionStorage.getItem('my_position_city'));
   }
   find_destin(){
     let o:any[]=[];
@@ -37,7 +47,8 @@ export class choice_destin{
     };
     //固定城市为南宁
     let local = new BMap.LocalSearch(this.map, options);
-    local.search('南宁'+this.binding);
+    let target_string:string = sessionStorage.getItem('my_position_province')+sessionStorage.getItem('my_position_city')+this.binding;
+    local.search(target_string);
     let display= (e:any)=>{ this.list = e }
   }
 
