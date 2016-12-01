@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      选择目的地
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button light (click)="dismiss(null)">关闭</button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar>
+    <label>目的地</label>
+    <input type="text" placeholder="请输入目的地关键字" [(ngModel)]="binding">
+    <ion-buttons end>
+      <button ion-button light (click)="find_destin()">提交</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let item of list" (click)="dismiss(item)">
+      {{item}}
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      旅行专车
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<div style="position: absolute;top:46%;left: 48%;z-index: 10">
+  <img src="assets/img/location.png" alt="">
+</div>
+<ion-content class="map">
+  <div #container id="container" class="mapContainer" style="height:100%"></div>
+</ion-content>
+<div style="position: absolute;bottom:6.6%;z-index: 1;width: 90%;margin-left: 5%">
+  <ion-item>
+    <ion-label color="primary" fixed>出发地</ion-label>
+    <ion-input type="text" placeholder="输入出发地" id="debut" style="font-size: 13px" onfocus="this.blur();"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" fixed>目的地</ion-label>
+    <ion-input type="text" placeholder="目的地" onfocus="this.blur();" style="font-size: 13px" (click)="creat_destinate()" id="destin"></ion-input>
+  </ion-item>
+  <ion-row>
+    <ion-col width-50>
+      <ion-buttons>
+        <button ion-button block color="secondary" (click)="order_now()">立刻出发</button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col width-25>
+      <ion-buttons>
+        <button ion-button block>预定</button>
+      </ion-buttons>
+    </ion-col>
+    <ion-col width-25>
+      <ion-buttons>
+        <button ion-button block color="danger">包车</button>
+      </ion-buttons>
+    </ion-col>
+  </ion-row>
+</div>
+
+<ion-footer>
+
+  <ion-toolbar>
+    <ion-row>
+      <ion-col width-50 text-center>
+        <span><ion-icon name="home"></ion-icon></span>
+        <span>首页</span>
+      </ion-col>
+      <ion-col width-50 text-center>
+        <span><ion-icon name="person"></ion-icon></span>
+        <span>我的订单</span>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
