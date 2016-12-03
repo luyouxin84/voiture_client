@@ -134,7 +134,7 @@ export class index implements OnInit{
       output += plan.getDuration(true) + "\n";                //获取时间
       output += "总路程为：" ;
       output += plan.getDistance(true) + "\n";             //获取距离
-    }
+    };
 
     var transit = new BMap.DrivingRoute(this._map, {renderOptions: {map: this._map},
       onSearchComplete: searchComplete,
